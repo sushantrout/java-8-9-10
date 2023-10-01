@@ -114,5 +114,12 @@ public class StreamTest {
 
         long count = Stream.of(1,2,3,4,5,6,7,8,9).count();
         System.out.println("Count -> "+ count);
+
+        System.out.println("reduce");
+        Stream.of(1,2,3,4,5,6,7,8,9).reduce((f, s) -> f + s).ifPresent(System.out::println);
+
+        System.out.println("reduce with initial value");
+        int i = Stream.of(1, 2, 3, 4, 5, 6, 7, 8, 9).reduce(10, (f, s) -> f + s).intValue();
+        System.out.println(i);
     }
 }
