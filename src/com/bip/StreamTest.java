@@ -121,5 +121,15 @@ public class StreamTest {
         System.out.println("reduce with initial value");
         int i = Stream.of(1, 2, 3, 4, 5, 6, 7, 8, 9).reduce(10, (f, s) -> f + s).intValue();
         System.out.println(i);
+
+        Stream.of(1).onClose(() -> {
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException e) {
+                    }
+                    System.out.println("I am runnable");
+                })
+                .onClose(() -> System.out.println("I am runnable1"))
+                .close();
     }
 }

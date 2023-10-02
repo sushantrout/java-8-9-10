@@ -14,9 +14,13 @@ public class EmployeeProvider {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
         try {
-            employees.add(new Employee(1, "John Doe", 60000.0, "Software Engineer", "Engineering", dateFormat.parse("2021-01-15")));
-            employees.add(new Employee(2, "Jane Smith", 75000.0, "Project Manager", "Management", dateFormat.parse("2020-03-20")));
-            employees.add(new Employee(3, "Robert Johnson", 55000.0, "Quality Analyst", "Quality Assurance", dateFormat.parse("2019-07-10")));
+            String engineering = "Engineering";
+            String management = "Management";
+            String quality_assurance = "Quality Assurance";
+
+            employees.add(new Employee(1, "John Doe", 60000.0, "Software Engineer", engineering, dateFormat.parse("2021-01-15")));
+            employees.add(new Employee(2, "Jane Smith", 75000.0, "Project Manager", management, dateFormat.parse("2020-03-20")));
+            employees.add(new Employee(3, "Robert Johnson", 55000.0, "Quality Analyst", quality_assurance, dateFormat.parse("2019-07-10")));
             employees.add(new Employee(4, "Emily Wilson", 70000.0, "Data Scientist", "Research", dateFormat.parse("2018-11-05")));
             employees.add(new Employee(5, "Michael Brown", 65000.0, "Marketing Manager", "Marketing", dateFormat.parse("2019-09-15")));
             employees.add(new Employee(6, "Linda Davis", 72000.0, "Sales Manager", "Sales", dateFormat.parse("2017-05-10")));
@@ -25,9 +29,9 @@ public class EmployeeProvider {
             employees.add(new Employee(9, "James Lee", 68000.0, "Product Manager", "Product Management", dateFormat.parse("2018-08-20")));
             employees.add(new Employee(10, "Karen Clark", 59000.0, "Customer Support", "Customer Service", dateFormat.parse("2021-06-12")));
 
-            employees.add(new Employee(11, "Samuel Adams", 62000.0, "Software Developer", "Engineering", dateFormat.parse("2020-10-25")));
-            employees.add(new Employee(12, "Olivia Turner", 72000.0, "Project Lead", "Management", dateFormat.parse("2019-03-18")));
-            employees.add(new Employee(13, "Charles Baker", 54000.0, "Quality Control", "Quality Assurance", dateFormat.parse("2020-07-01")));
+            employees.add(new Employee(11, "Samuel Adams", 62000.0, "Software Developer", engineering, dateFormat.parse("2020-10-25")));
+            employees.add(new Employee(12, "Olivia Turner", 72000.0, "Project Lead", management, dateFormat.parse("2019-03-18")));
+            employees.add(new Employee(13, "Charles Baker", 54000.0, "Quality Control", quality_assurance, dateFormat.parse("2020-07-01")));
             employees.add(new Employee(14, "Grace Mitchell", 73000.0, "Data Analyst", "Research", dateFormat.parse("2019-05-30")));
             employees.add(new Employee(15, "William Walker", 68000.0, "Marketing Specialist", "Marketing", dateFormat.parse("2018-04-10")));
             employees.add(new Employee(16, "Ava Nelson", 75000.0, "Sales Executive", "Sales", dateFormat.parse("2017-06-15")));
