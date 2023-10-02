@@ -107,11 +107,12 @@ public class CollectorsTest {
 
         System.out.println("max, min");
         System.out.println("maxBy");
-        employees.stream().collect(Collectors.maxBy(Comparator.comparing(Employee::getId)))
+        Comparator<Employee> comparing = Comparator.comparing(Employee::getId);
+        employees.stream().collect(Collectors.maxBy(comparing))
                 .ifPresent(System.out::println);
 
         System.out.println("minBy");
-        employees.stream().collect(Collectors.minBy(Comparator.comparing(Employee::getId)))
+        employees.stream().collect(Collectors.minBy(comparing))
                 .ifPresent(System.out::println);
 
         System.out.println("Max in the grouping by");
@@ -119,7 +120,7 @@ public class CollectorsTest {
                 .collect(Collectors.groupingBy(
                         Employee::getDepartment,
                         Collectors.collectingAndThen(
-                                Collectors.maxBy(Comparator.comparing(Employee::getId)),
+                                Collectors.maxBy(comparing),
                                 maxEmployee -> maxEmployee.map(Employee::getId).orElse(0)
                         )
                 )).forEach((k, v) -> System.out.println(k +" => " + v));
@@ -145,6 +146,12 @@ public class CollectorsTest {
         ));
 
         System.out.println(flattenedList);
+
+        employees.stream().collect(Collectors.teeing(
+                Collectors.minBy(comparing),
+                Collectors.maxBy(comparing),
+                (a, b) -> Arrays.asList(a, b)
+        )).stream().forEach(System.out::println);
 
     }
 }
